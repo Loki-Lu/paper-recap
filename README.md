@@ -1,4 +1,4 @@
-# 可乐桶的 Paper Recap
+# Loki 的 Paper Recap
 
 个人论文阅读库，保存读过的论文、阅读时的疑问和自己的判断。
 
