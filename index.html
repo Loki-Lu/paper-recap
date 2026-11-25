@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="可乐桶的论文阅读笔记与回顾。" />
+    <meta name="author" content="可乐桶" />
+    <meta name="theme-color" content="#f4f1e8" />
+    <title>可乐桶的论文回顾库 · Paper Recap</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.css" integrity="sha384-vlBdW0r3AcZO/HboRPznQNowvexd3fY8qHOWkBi5q7KGgqJ+F48+DceybYmrVbmB" crossorigin="anonymous" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/katex.min.js" integrity="sha384-AtrdNsnxl/75rvBneBVH7DtOvCxSVahR2zWqle1coBKd8DEmLoviqNeJSx64gNAs" crossorigin="anonymous" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.17.0/dist/contrib/auto-render.min.js" integrity="sha384-bjyGPfbij8/NDKJhSGZNP/khQVgtHUE5exjm4Ydllo42FwIgYsdLO2lXGmRBf5Mz" crossorigin="anonymous" defer></script>
+    <script src="assets/papers.js" defer></script>
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="Paper Recap 首页">
+        <span class="brand-mark" aria-hidden="true">P.</span>
+        <span>Paper Recap</span>
+      </a>
+      <div class="header-actions">
+        <span class="last-updated" id="last-updated"></span>
+        <button class="icon-button" id="theme-toggle" type="button" aria-label="切换明暗主题">◐</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <h1 id="page-title">可乐桶的<br /><em>论文回顾库</em></h1>
+        <p class="hero-copy">记录论文的方法、证据和阅读时的判断。</p>
+
+        <dl class="stats" aria-label="阅读统计">
+          <div><dt id="stat-papers">0</dt><dd>篇记录</dd></div>
+          <div><dt id="stat-tags">0</dt><dd>个主题</dd></div>
+          <div><dt id="stat-days">0</dt><dd>个阅读日</dd></div>
+        </dl>
+      </section>
+
+      <section class="library" aria-labelledby="library-title">
+        <div class="section-heading">
+          <h2 id="library-title">阅读记录</h2>
+          <label class="search" data-library-control hidden>
+            <span aria-hidden="true">⌕</span>
+            <input id="search-input" type="search" placeholder="搜索标题、作者、标签、观点…" aria-label="搜索阅读记录" autocomplete="off" />
+            <kbd>/</kbd>
+          </label>
+        </div>
+
+        <div class="filters" data-library-control hidden>
+          <div class="filter-toolbar">
+            <p class="filter-help" id="filter-help">按标签找讲解 · 可多选，显示同时符合的记录</p>
+            <div class="filter-actions">
+              <button class="reset-filters" id="reset-filters" type="button" disabled>清除筛选</button>
+              <label class="sort-control">排序
+                <select id="sort-select">
+                  <option value="newest">最近阅读</option>
+                  <option value="title">标题 A–Z</option>
+                </select>
+              </label>
+            </div>
+          </div>
+          <div class="tag-groups" id="tag-list" aria-label="按标签筛选" aria-describedby="filter-help"></div>
+        </div>
+
+        <p class="result-count" id="result-count" aria-live="polite" data-library-control hidden></p>
+        <div class="paper-grid" id="paper-grid"></div>
+        <div class="empty-state" id="empty-library" hidden>
+          <h3>还没有阅读记录</h3>
+          <p>发布第一篇笔记后，它会显示在这里。</p>
+        </div>
+        <div class="empty-state" id="empty-state" hidden>
+          <h3>没有匹配的记录</h3>
+          <p>换个关键词或清除标签试试。</p>
+          <button type="button" id="clear-filters">清除筛选</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 可乐桶</p>
+      <p>基于 <a href="https://github.com/lawrence-cj/paper-recap">Paper Recap</a></p>
+    </footer>
+
+    <dialog id="paper-dialog" aria-labelledby="dialog-title">
+      <article class="paper-detail">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="关闭详情">×</button>
+        <div id="dialog-content"></div>
+      </article>
+    </dialog>
+
+    <dialog class="image-dialog" id="image-dialog" aria-labelledby="image-dialog-caption">
+      <button class="dialog-close image-dialog-close" id="image-dialog-close" type="button" aria-label="关闭图片">×</button>
+      <figure>
+        <img id="image-dialog-image" alt="" />
+        <figcaption id="image-dialog-caption"></figcaption>
+      </figure>
+    </dialog>
+
+    <noscript>这个网站需要 JavaScript 才能展示论文记录。</noscript>
+  </body>
+</html>
